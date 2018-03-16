@@ -1,0 +1,18 @@
+Admin modules are only activated when a user both in the admin list and verified by NickServ
+sends a message with '.admin' at the beginning. Within this, any admin commands can be
+implemented similarly to the implementation of the normal modules. Here is a list of the
+method signatures that will be called in admin modules:
+
+Parameters:
+f		: the socket file
+sender	: the nick of the message sender
+msg		: the content of the message
+loc		: the location of the message (either a channel, for channel messages, or username for private)
+rsvp	: the function for simple responses, used rsvp(f,loc,msg)
+send	: the raw send function
+auths	: the list of auth tiers for each user
+
+handle(f,sender,msg,loc,rsvp,send,authtiers)
+	Called on channel messages.
+privhandle(f,sender,msg,loc,rsvp,send,authtiers)
+	Called on private messages. Note sender == loc.

@@ -1,0 +1,16 @@
+Modules are activated from any message. Any behavior can be implemented
+within a module contingent on the module methods. Here is a list of the
+method signatures that will be called in modules:
+
+Parameters:
+f		: the socket file
+sender	: the nick of the message sender
+msg		: the content of the message
+loc		: the location of the message (either a channel, for channel messages, or username for private)
+rsvp	: the function for simple responses, used rsvp(f,loc,msg)
+send	: the raw send function
+
+handle(f,sender,msg,loc,rsvp,send)
+	Called on channel messages.
+privhandle(f,sender,msg,loc,rsvp,send)
+	Called on private messages. Note sender == loc.

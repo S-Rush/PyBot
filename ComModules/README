@@ -1,0 +1,11 @@
+Command Modules are activated from command line input. Any behavior can be implemented
+within a module based on the command line inputted. Here is a list of method
+signatures that will be called in modules:
+
+Parameters:
+line	: The input line
+rsvp	: the function for simple responses, used rsvp(f,loc,msg)
+send	: the raw send function
+
+comhandle(line,rsvp,send)
+	Called on any line of input.
